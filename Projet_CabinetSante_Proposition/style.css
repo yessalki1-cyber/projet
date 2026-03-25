@@ -1,0 +1,248 @@
+/* Configuration de base et Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-blue: #0056b3;
+    --secondary-blue: #e3f2fd;
+    --text-dark: #333;
+    --white: #ffffff;
+    --gray-light: #f4f4f4;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--white);
+}
+
+/* 1. Barre de navigation */
+/* CORRECTION: header ne contient plus la section accueil,
+   position sticky fonctionne correctement maintenant */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-left: 20px;
+    transition: opacity 0.2s;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+}
+
+/* 2. Section Accueil  */
+#accueil {
+    scroll-margin-top: 70px;
+    background: linear-gradient(rgba(0,86,179,0.7), rgba(0,86,179,0.7)), 
+    url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 20px;
+}
+
+#accueil h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.btn {
+    background: var(--white);
+    color: var(--primary-blue);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: var(--secondary-blue);
+    transform: translateY(-3px);
+}
+
+/* 3. Style général des Sections */
+section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: auto;
+    scroll-margin-top: 70px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+/* 4. Grille de l'Équipe */
+.grid-equipe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+article {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+article img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* 5. Section Services */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.services-container div span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* 6. Formulaire de Rendez-vous */
+#rendezvous {
+    background-color: var(--secondary-blue);
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#formRDV {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#formRDV input, #formRDV select, #formRDV textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#formRDV button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#formRDV button:hover {
+    background-color: #004494;
+}
+
+/* 7. Contact */
+#contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 8. Footer */
+footer {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding: 40px 5% 20px;
+    text-align: center;
+}
+
+.footer-content a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* 9. Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #accueil h1 {
+        font-size: 2rem;
+    }
+}

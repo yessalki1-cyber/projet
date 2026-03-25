@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabinetSante - Votre Santé, Notre Priorité</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">CabinetSante</div>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#equipe">Notre Équipe</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#rendezvous">Prendre RDV</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil">
+        <h1>Bienvenue chez CabinetSante</h1>
+        <p>Votre santé est entre de bonnes mains.</p>
+        <a href="#rendezvous" class="btn">Prendre rendez-vous</a>
+    </section>
+
+    <section id="equipe">
+        <h2>Notre Équipe Médicale</h2>
+        <div class="grid-equipe">
+            <article>
+                <img src="image/WhatsApp Image 2026-03-14 at 23.03.31.jpeg" alt="Dr Alami">
+                <h3>Dr. Ahmed Alami</h3>
+                <p><strong>Spécialité:</strong> Médecine Générale</p>
+                <p><strong>Jours:</strong> Lundi au Vendredi</p>
+            </article>
+            <article>
+                <img src="image/healthcare-workers-preventing-virus-quarantine-campaign-concept-cheerful-friendly-asian-female-physician-doctor-with-clipboard-daily-checkup-standing-white-background_1258-107867.avif" alt="Dr Benani">
+                <h3>Dr. Sara Benani</h3>
+                <p><strong>Spécialité:</strong> Pédiatrie</p>
+                <p><strong>Jours:</strong> Lundi, Mercredi, Vendredi</p>
+            </article>
+            <article>
+                <img src="image/WhatsApp Image 2026-03-14 at 23.03.01.jpeg" alt="Dr Drissi">
+                <h3>Dr. Karim Drissi</h3>
+                <p><strong>Spécialité:</strong> Cardiologie</p>
+                <p><strong>Jours:</strong> Mardi et Jeudi</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Nos Services</h2>
+        <div class="services-container">
+            <div>
+                <span>🩺</span>
+                <h3>Consultation Générale</h3>
+                <p>Suivi complet pour adultes et enfants.</p>
+            </div>
+            <div>
+                <span>👶</span>
+                <h3>Pédiatrie</h3>
+                <p>Soins spécialisés pour les plus petits.</p>
+            </div>
+            <div>
+                <span>❤️</span>
+                <h3>Cardiologie</h3>
+                <p>Examens du cœur et tension artérielle.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rendezvous">
+        <h2>Prendre un Rendez-vous</h2>
+        <form id="formRDV">
+            <input type="text" id="nom" placeholder="Nom complet" required>
+            <input type="tel" id="tel" placeholder="Téléphone" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <select id="medecin" required>
+                <option value="">Choisir un médecin</option>
+                <option value="alami">Dr. Alami - Médecine Générale</option>
+                <option value="benani">Dr. Benani - Pédiatrie</option>
+                <option value="drissi">Dr. Drissi - Cardiologie</option>
+            </select>
+            <input type="date" id="date" required>
+            <textarea id="motif" placeholder="Motif de consultation"></textarea>
+            <button type="submit">Confirmer le RDV</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contact &amp; Localisation</h2>
+        <div class="contact-info">
+            <p>📍 Adresse: 123 Rue de la Santé, Casablanca</p>
+            <p>📞 Téléphone: +212 5 22 00 00 00</p>
+            <p>📧 Email: contact@cabinetsante.ma</p>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.846351171459!2d-7.6325145!3d33.5833075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDM0JzU5LjkiTiA3wrAzNyc1Ny4xIlc!5e0!3m2!1sfr!2sma!4v1646560000000!5m2!1sfr!2sma" 
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p><a href="#">Mentions Légales</a> | <a href="#">Politique de Confidentialité</a></p>
+            <div class="social-icons">
+                <span>Facebook</span> | <span>Instagram</span> | <span>LinkedIn</span>
+            </div>
+        </div>
+        <p>&copy; 2026 CabinetSante - Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('formRDV');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const rdvData = {
+                nom: document.getElementById('nom').value,
+                tel: document.getElementById('tel').value,
+                email: document.getElementById('email').value,
+                medecin: document.getElementById('medecin').value,
+                date: document.getElementById('date').value,
+                motif: document.getElementById('motif').value
+            };
+
+            const selectedDate = new Date(rdvData.date);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            if (selectedDate < today) {
+                alert("Erreur: Khass t-khtar tarikh f l-mustaqbal!");
+                return;
+            }
+
+            localStorage.setItem('dernierRDV', JSON.stringify(rdvData));
+            alert("Merci " + rdvData.nom + "! Votre rendez-vous est enregistré.");
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
